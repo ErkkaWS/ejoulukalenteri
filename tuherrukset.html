@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Joulukalenteri">
+    <meta name="author" content="V.V ,E.W.S, R.R & J.S ">
+
+    <link href="adventti.css" rel="stylesheet">
+    
+    <title>Asiallinen Jouluelokuvakalenteri</title>
+  
+    <div class="sidebar left"></div>
+    <div class="sidebar right"></div>
+
+</head>
+
+
+
+    
+    <ul>
+        <li><button onclick="siirryAlkuun()">Alkuun</button></li>
+        <li><button onclick="tarkistaAika(1)">1</button></li>
+        <li><button onclick="tarkistaAika(2)">2</button></li>
+        <li><button onclick="tarkistaAika(3)">3</button></li>
+        <li><button onclick="tarkistaAika(4)">4</button></li>
+        <li><button onclick="tarkistaAika(5)">5</button></li>
+        <li><button onclick="tarkistaAika(6)">6</button></li>
+        <li><button onclick="tarkistaAika(7)">7</button></li>
+        <li><button onclick="tarkistaAika(8)">8</button></li>
+        <li><button onclick="tarkistaAika(9)">9</button></li>
+        <li><button onclick="tarkistaAika(10)">10</button></li>
+        <li><button onclick="tarkistaAika(11)">11</button></li>
+        <li><button onclick="tarkistaAika(12)">12</button></li>
+        <li><button onclick="tarkistaAika(13)">13</button></li>
+        <li><button onclick="tarkistaAika(14)">14</button></li>
+        <li><button onclick="tarkistaAika(15)">15</button></li>
+        <li><button onclick="tarkistaAika(16)">16</button></li>
+        <li><button onclick="tarkistaAika(17)">17</button></li>
+        <li><button onclick="tarkistaAika(18)">18</button></li>
+        <li><button onclick="tarkistaAika(19)">19</button></li>
+        <li><button onclick="tarkistaAika(20)">20</button></li>
+        <li><button onclick="tarkistaAika(21)">21</button></li>
+        <li><button onclick="tarkistaAika(22)">22</button></li>
+        <li><button onclick="tarkistaAika(23)">23</button></li>
+        <li><button onclick="tarkistaAika(24)">24</button></li>
+    </ul>
+
+    
+    <h1>Elokuva Joulukalenteri</h1>
+    
+    
+    <h2>Tervetuloa seuraamaan elokuvakalenteria! <br> Aloita valitsemalla päivä ja koe elokuvan taikainen yllätys! </h2>
+
+
+        <script>
+const luukut = [
+            { luukunNmr: 1, sivu: "Leffat/1.luukku/Luukku1.html"},
+            { luukunNmr: 2, sivu: "Leffat/2.luukku/Luukku2.html" },
+            { luukunNmr: 3, sivu: "Leffat/3.luukku/Luukku3.html" },
+            { luukunNmr: 4, sivu: "Leffat/4.luukku/Luukku4.html" },
+            { luukunNmr: 5, sivu: "Leffat/5.luukku/Luukku5.html" },
+            { luukunNmr: 6, sivu: "Leffat/6.luukku/Luukku6.html" },
+            { luukunNmr: 7, sivu: "Leffat/7.luukku/Luukku7.html" },
+            { luukunNmr: 8, sivu: "Leffat/8.luukku/Luukku8.html" },
+            { luukunNmr: 9, sivu: "Leffat/9.luukku/Luukku9.html" },
+            { luukunNmr: 10, sivu: "Leffat/10.luukku/Luukku10.html" },
+            { luukunNmr: 11, sivu: "Leffat/11.luukku/Luukku11.html" },
+            { luukunNmr: 12, sivu: "Leffat/12.luukku/Luukku12.html" },
+            { luukunNmr: 13, sivu: "Leffat/13.luukku/Luukku13.html" },
+            { luukunNmr: 14, sivu: "Leffat/14.luukku/Luukku14.html" },
+            { luukunNmr: 15, sivu: "Leffat/15.luukku/Luukku15.html" },
+            { luukunNmr: 16, sivu: "Leffat/16.luukku/Luukku16.html" },
+            { luukunNmr: 17, sivu: "Leffat/17.luukku/Luukku17.html" },
+            { luukunNmr: 18, sivu: "Leffat/18.luukku/Luukku18.html" },
+            { luukunNmr: 19, sivu: "Leffat/19.luukku/Luukku19.html" },
+            { luukunNmr: 20, sivu: "Leffat/20.luukku/Luukku20.html" },
+            { luukunNmr: 21, sivu: "Leffat/21.luukku/Luukku21.html" },
+            { luukunNmr: 22, sivu: "Leffat/22.luukku/Luukku22.html" },
+            { luukunNmr: 23, sivu: "Leffat/23.luukku/Luukku23.html" },
+            { luukunNmr: 24, sivu: "Leffat/24.luukku/Luukku24.html" }
+        ];
+
+        function tarkistaAika(day) {
+            
+            const tamapaiva = new Date();
+            tamapaiva.setHours(0, 0, 0, 0);
+
+            const luukku = luukut.find(luukku => luukku.luukunNmr === day);
+            const luukunAvausPaiva = new Date(tamapaiva.getFullYear(), 10,luukku.luukunNmr);
+
+            if (tamapaiva < new Date(tamapaiva.getFullYear(), 10, 1) || tamapaiva > new Date(tamapaiva.getFullYear(), 1, 31));{
+                window.location.href = "Leffat/25.VoiVoiPukki/Luukku25.html";
+                return; 
+            }if (tamapaiva>=luukunAvausPaiva){
+                window.location.href = luukku.sivu;
+            }else{
+                window.location.href = "Leffat/SooSooPukki/Luukku0.hmtl"
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//             tamapaiva.getFullYear() === luukku.luukunPvm.getFullYear() &&
+//             tamapaiva.getMonth() === luukku.luukunPvm.getMonth() &&
+//             tamapaiva.getDate() >= luukku.luukunPvm.getDate()
+//     ) {
+//             document.getElementById("vastaus").innerHTML = `Luukku ${luukku.luukunNmr}: ${luukku.sivu}`;
+//            } else {alert("soosoo, luukkuja ei avaILLA ETUKÄTEEN")}
+//         }
+//    let Leffat = [
+//             {
+//             leffanNmr: 1 ,
+//             leffanPvm: new Date("2024-11-25"),
+//             paivanleffa: 'Yksinkotona',
+//             kuva: 'https://ibb.co/kgXRX4z',
+//             kuvaus: "Tämä elokuva on mitä täydellisin joulunhengen herätykseen! Tarina kertoo McCallisterin perheestä, joka lähtee lomalle jouluksi ulkomaille. Hassunhauskojen käänteiden vuoksi perheen Kevin-poika jää elokuvan nimen mukaisesti YKSIN KOTIIN! Kuinka poika pärjää yksin ja mitä kaikkea mahdollista voikaan tapahtua joulun aikaan ennen kuin koko loppu perhe mahdollisesti kerkeää kotiin?! Elokuva saa tiimiltämme Roopen Röyhkeän Hilpeän leiman 6/5"
+//             },
+            
+//             leffanNmr: 2,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa:"Yksinkotona 2",
+//             kuva:"/Leffat/2.Yksinkotona2/2.Yksinkotona2.png",
+//             kuvaus: "Elokuva on hilpeä jatko-osa kun McCallisterin perhe on jälleen lähdössä jouluksi lomalle. Tällä kertaa Kevin eksyy perheestään lentokentällä ja päätyy New Yorkiin isänsä pohjattomien varojen sisältämän luottokortin. Miten Kevinin reissu sujuu tällä kertaa? Mitä kaikkea hauskaa ja hulvatonta Kevin kokee Isossa Omenassa? Tuleeko vastaan vanhoja tuttuja? Elokuva saa tiimiltämme Vilin Veikeän Joululeiman. 4/5"
+//             },
+//             {
+//             leffanNmr:3,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa:"Elf",
+//             kuva:"/Leffat/3.Elf/3.Elf.png"/>,
+//             kuvaus: "Elokuva kertoo Buddystä, joka vauvana eksyi pukin säkkiin, ja täten tulee adoptoiduksi Tonttupapan toimesta kertomatta, että Buddy on oikeasti ihminen. Kun Buddy on kasvanut aikuiseksi hän suuntaa etsimään isäänsä New Yorkiin ja tässähän ei voi mennä mikään pieleen. Tämä elokuva synnytti suunnatonta naurua ja huvitusta meidän tiimissämme ja täten saa meiltä: Erkan Erinomainen leiman. 6/5"
+//             },
+//             {
+//             leffanNmr:4,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Isäni on Turbomies",
+//             kuva:"/Leffat/4.Isäni Turbomies/4.Isäni on Turbomies.png",
+//             kuvaus: "Tämä elokuva kertoo Howard Langstonista, miehestä joka ei osaa viettää tarpeeksi aikaa perheensä kanssa. Korjatakseen tilanteensa perheen kanssa Howard löytää itsensä jahtaamasta sesongin suosituinta lelua: Turbomies actionfiguuria, koko maan muiden vanhempien kanssa. Mitä tämä hassunhauska jahti sisältää ja saako Howard korjattuaan aiheuttamansa kuilun perheen sisällä? Tämä elokuva saa tiimiltämme arvosanaksi: Jannen Jännittävä Jahti leiman. 4/5"
+//             },
+//             {
+//             leffanNmr:5,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Napapiirin pikajuna",
+//             kuva:/Leffat/5.Napiirin pikajuna/5.Napapiirin pikajuna.png",
+//             kuvaus: "Napapiirin pikajuna kertoo jouluisan tarinan Steven- pojasta, joka toivoo jouluksi todellista jouluihmettä. Ihmeen kaupalla toive käy toteen ja Stevenin kotiovelle ilmestyy maaginen taikajuna: Napapiirin pikajuna, joka suuntaa kohti Pohjoisnapaa.  Mitä Stevenin matkaan sisältyy ja mitä kaikkea taianomaista todellisen jouluihmeen toteutumisen aikana voi tapahtua? Tämä elokuva sai tiimimme haukkaamaan happea jännityksestä ja tämän myötä saa arvosanaksi: Erkan Emotionaalinen leiman. 5/5"
+//             },
+//             {
+//             leffanNmr:6,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa:"Tuntematon Sotilas (2017)",
+//             kuva:"/Leffat/6.Tuntematon Sotilas/6.Tuntematon Sotilas.png",
+//             kuvaus: "Suomalaisen historian uudesti syntynyt klassikko, joka on kerännyt ylistystä ulkomaita myöten. Itsenäisyyspäivän kunniaksi suositeltu elokuva, joka seuraa suomalaisen konekiväärikomppanian karua matkaa jatkosodassa. Elokuva yhdistää sodan brutaalin todellisuuden ja inhimillisen huumorin, kun erilaiset hahmot joutuvat kohtaamaan niin sodan kauheudet kuin omat pelkonsa yksin, sekä yhdessä. Tämä elokuvaa tiimiltämme arvosanaksi Roopen Räjähtävän leiman. 5/5"
+//             },
+//             {
+//             leffanNmr:7,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Painajainen ennen joulua",
+//             kuva: "/Leffat/7.Painajainen ennen joulua/7.Painajainen ennen joulua.png",
+//             kuvaus: "Tämä elokuva kertoo kun Halloweenin kuningas Jack Skellington päättää ottaa joulun haltuunsa, lopputulos on kuin tonttupajan ja kummitustalon törmäys. Lahjat heräävät eloon, lapset saavat pelottavia yllätyksiä, ja Joulupukki... no, hän päätyy lataamoon vähän eri tavalla kuin odotti. Tämä goottimusikaali pläjäys on kuin ohjaaja Tim Burtonin värikäs päiväuni, jossa piparit maistuvat pelolta ja joulu saa kieroutuneen, mutta rakastettavan säväyksen! Tämä kulttiklassikko saa tiimiltämme arvosanaksi: Vilin Virtuoosimainen leiman"
+//             },
+//             {
+//             leffanNmr:8,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "The Grinch",
+//             kuva:"/Leffat/8.The Grinch/8.The Grinch.png",
+//             kuvaus: "Tämä mestariteos kertoo suurella vuorella asuvasta peikosta, Grinchistä, joka vihaa sydämensä pohjasta tätä kuluvaa vuoden aikaa. Tämän tarinan vuoren alapuolella sijaitsee kylä, jossa puolestaan kaikki rakastavat joulua ja pelkäävät Grinchiä. Mitä tapahtuu kun pieni lapsi Cindy Lou yrittää kutsua Grinchin juhlimaan joulua kylän kanssa. Tämä elokuva sai tiimiltämme arvosanaksi: Roopen Rauhaa ja Rakkautta leiman. 4/5"
+//             },
+//             {
+//             leffanNmr:9,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa:"Niko- Lentäjän poika",
+//             kuva:"/Leffat/9.Niko-Lentäjän poika/9.Niko - Lentäjän poika.png",
+//             kuvaus:"Niko, lentäjän poika, on hauska ja lämminhenkinen tarina porosta, joka haaveilee lentämisestä ja oppii kompastelun kautta uskomaan itseensä apunaan huumorintajuinen oravakaveri ja vauhdikas eläinjoukko.Tämä sydäntä lämmittävä kuin sydämiä sulattava seikkailu sai arvosanaksi tiimiltämme: Erkan Erityisen leiman. 3/5"
+//             },
+//             {
+//             leffanNmr:10,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa:"Bobin joulu- Kissa joka toi joulumielen",
+//             kuva:"/Leffat/10.Bobin joulu- Kissa joka toi joulumielen/10.Bobin joulu- Kissa joka toi joulumielen.png",
+//             kuvaus: "Elokuva on lämmin ja koskettava tarina ystävyydestä ja joulun hengestä. Koditon muusikko James ja hänen uskollinen kumppaninsa Bob-kissa kohtaavat haasteita joulun alla, mutta yhdessä he löytävät toivon, antamisen ilon ja sen, mikä tekee joulusta taianomaisen. Bobin punainen huivi ja viisas katse muistuttavat, että pienet teot voivat tuoda suurta iloa. Tämä luomus sai tiimiltämme arvosanaksi: Jannen Jätte Kiva. 2/5"
+//             },
+//             {
+//             leffanNmr:11,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "The Holiday",
+//             kuva:"/Leffat/11.The Holiday/11.The Holiday.png",
+//             kuvaus:"Tämä rakkautta ylitsetursuava pläjäys on sydämellinen ja romanttinen tarina uusista aluista ja joulun taikavoimasta. Kaksi naista, Amanda ja Iris, päättävät paeta sydänsurujaan vaihtamalla koteja joululoman ajaksi – toinen suuntaa Englannin maaseudulle, toinen Los Angelesiin. Lumiset maisemat, lämminhenkiset kohtaamiset ja odottamattomat romanssit saavat heidät löytämään uudelleen rakkauden ja itsensä. Tämä on täydellinen elokuva tunnelmalliseen jouluiltaan! Tämä punaista ja amorin nuolia tihkuva näköradion luomus sai tiimiltämme arvosanaksi: Vilin vaisu pusu leiman. 2/5"
+//             },
+//             {
+//             leffanNmr:12,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Gremlins",
+//             kuva: "/Leffat/12.Gremlins/12.Gremlins.png",
+//             kuvaus: "Elokuva kertoo hulvattomasta ja jännittävästä joulutarinasta, jossa söpöstä joululahjasta kehkeytyy kaaosta kylvävä painajainen. Kun Billy saa isältään Gizmo-nimisen oudon otuksen, asiat suistuvat nopeasti raiteiltaan, kun kolme yksinkertaista sääntöä rikotaan. Kaupunki täyttyy ilkikurisista Gremlins-olioista, jotka yhdistävät joulun tunnelman ja villin katastrofin. Tämä klassikko on täydellinen yhdistelmä naurua, kauhua ja juhlamieltä! Tämä elokuva sai tiimiltämme arvosanaksi Erkan Erityinen & Jannen Jännittävä leiman. 6/5"
+//             },
+//             {
+//             leffanNmr:13,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Joulutarina",
+//             kuva: "/Leffat/13.Joulutarina/13.Joulutarina.png",
+//             kuvaus: "Joulutarina kertoo tarinan siitä, miten joulupukista tuli joulupukki ja millainen hänen lapsuutensa oli. Kun Nikolaksen vanhemmat ja nuorempi sisko putoavat järven jään alle ja hukkuvat, muuttaa hän useamman perheen luo aina vuodeksi kerrallaan ja kiitokseksi jättää perheen lapsille omia veistettyjä lelujaan. Miten käykään Nikolaksen kun kylälle saapuu nälkäpula...? Tämä origin story saa tiimiltämme arvosanaksi: Vilin vaikuttava 3/5"
+//             },
+//             {
+//             leffanNmr:14,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Bad Santa",
+//             kuva: "/Leffat/14. Bad Santa/14. Bad Santa.png",
+//             kuvaus: "Bad Santa elokuva on mustan huumorin elokuva, jossa joulupukki ja hänen apurinsa kiertävät kaupunkeja varastaakseen lahjoja jouluaattona. Tämä epäsovinnainen joulupukki on päihtynyt, kiroileva ja kaikkea muuta kuin perinteinen jouluhahmo. Elokuvassa nähdään, kuinka joulunhenki saa uudenlaisen käsittelyn, kun Pukin kyyninen asenne ja yllättävät yhteydet lapseen kääntävät perinteiset joulutarinat päälaelleen, tuoden niin naurua kuin yllätyksiä. Tämä elokuva saa täten tiimiltämme arvosanaksi: Roopen railakas leiman. 4/5"
+//             },
+//             {
+//             leffanNmr:15,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Klaus",
+//             kuva: "Leffat/15. Klaus/15. Klaus.png"/>,
+//             kuvaus: "Klaus on taianomainen ja sydäntälämmittävä animaatio, joka vie katsojan satumaiseen maailmaan, jossa joulun henki syntyy ystävyyden ja antamisen kautta. Nuori postimies Jesper joutuu syrjäiseen kylään, jossa ei tunneta joulun ilosanomaa. Kun hän tapaa erakoituneen puusepän Klausin, he yhdessä aloittavat matkan, joka muuttaa kylän ja koko maailman joulun vieton ikuisesti. Tämä elokuva on täynnä kauniita hetkiä, huumoria ja sydäntä lämmittävää joulumieltä. Tämä tuleva takuuvarma klassikko sai tiimiltämme arvosanaksi: Roopen Rakkautta ja Rauhaa leiman, sekä Jannen Jännitävä leiman. 6/5"
+//             },
+//             {
+//             leffanNmr:16,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Die Hard",
+//             kuva: "Leffat/16.Die hard/16.Die hard.png"/>,
+//             kuvaus: "Die Hard on toimintaelokuvien klassikko, jossa ei tavallista jouluiloa näy, mutta joulun tunnelma on silti läsnä. New Yorkin poliisi hassun hauska John McClane saapuu Los Angelesiin joulunviettoon, mutta hänen lomastaan tulee painajainen, kun terroristit valtaavat pilvenpiirtäjän. McClane taistelee yksin, pelastaen panttivankeja ja estäen tuhoa – ja kaiken tämän keskellä hän löytää itsekin joulun hengen. Elokuvassa yhdistyvät intensiivinen toiminta, huumori ja epätavallinen joulutarina, joka on hiljalleen noussut monien joulun elokuvaperinteeksi. Tämä elokuva sai tiimiltämme arvosanaksi: Jannen Jännitävä leiman. 5/5"
+//             },
+//             {
+//             leffanNmr:17,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Muppettien Joulu",
+//             kuva: "/Leffat/17. Muppettien joulu/17. Muppettien joulu.png"/>,
+//             kuvaus: "Tämä kulttiklassikko on iloisen hauska ja sydämellinen tulkinta Charles Dickensin klassikosta A Christmas Carol. Elokuvassa Scrooge, kylmä sydäminen vanha liikemies, kohtaa Muppetti-hahmot, jotka johdattavat hänet joulun henkeen. Koko perheelle sopiva seikkailu täynnä naurua, sydämellisiä hetkiä ja unohtumattomia lauluja, jotka muistuttavat joulun todellisesta merkityksestä – rakkaudesta, ystävyydestä ja anteliaisuudesta. Tämä elokuva on täynnä taikaa ja joulumieltä! Täten tämä elokuva sai tiimiltämme arvosanaksi: Vilin Veikeä leiman. 4/5"
+//             },
+//             {
+//             leffanNmr:18,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Petteri punakuono",
+//             kuva: "/Leffat/18. Petteri punakuono/18. Petteri punakuono.png"/>,
+//             kuvaus: "Tämä elokuva on rakastettu jouluklassikko, jossa pieni, punainen poron nenä tuo valoa pimeimpäänkin talviyöhön. Petteri on reipas ja rohkea poro, joka saa kokea suuren seikkailun, kun hän pääsee auttamaan joulupukkia lentämään sumuisessa säässä. Vaikka muut porot nauravat hänen kirkkaalle nenälleen, Petteri osoittaa, että joskus juuri erilaisuus on se, joka pelastaa joulun. Tämä sydämellinen tarina täynnä joulun taikaa on saanut monet uskomaan ihmeisiin ja ystävyyteen. Tämä elokuva sai tiimiltämme arvosanaksi: Erkan Erikoinen leiman. 3/5"
+//             },
+//             {
+//             leffanNmr:19,
+//             leffanPvm: new Date("2024-11-25"),
+//             paivanleffa: "Rare export",
+//             kuva: "/Leffat/19.Rare Exports/19.Rare Exports.png"/>,
+//             kuvaus: "Tämä suomalainen luomus on tumman huumorin ja jännityksen täyteinen jouluelokuva, joka tuo aivan uudenlaisen näkökulman joulupukin tarinaan. Pohjoisessa Lapissa, syrjäisessä kylässä, paikalliset miehet tekevät salaperäisiä löytöjä, jotka paljastavat joulupukin olevan jotain paljon pelottavampaa kuin olimme kuvitelleet. Koko kylä yhdistää voimansa taistellakseen tätä joulun varjoisaa legendaa vastaan. Elokuvassa yhdistyvät vauhdikkaat seikkailut, huumori ja omalaatuinen joulutunnelma, joka vie katsojat täysin uuteen, jännittävään joulufantasiaan. Tämä luomus sai tiimiltämme arvosanaksi: Roopen Räiskyvä leiman. 4/5"
+//             },
+//             {
+//             leffanNmr:20,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Tatu ja Patu - Kanelia kainaloon",
+//             kuva: "/Leffat/20.Tatu ja Patu - Kanelia kainaloon/20.Tatu ja Patu - Kanelia kainaloon.png"/>,
+//             kuvaus: "Tämä elokuva on hauska ja vauhdikas joulutarina, jossa Tatu ja Patu lähtevät tutkimaan joulun salaisuuksia omalla hulvattomalla tyylillään. Kaksikko seikkailee villisti joulua edeltävissä valmisteluissa ja päätyy ratkomaan omaperäisiä ongelmia, kuten joulukinkun katoamista ja lahjapaketin sisältöjen mysteeriä. Täynnä naurua, kekseliäisyyttä ja joulumieltä, elokuvassa Tatu ja Patu muistuttavat, että jouluna tärkeintä on yhdessäolo ja pienet ilot vaikka ne tulevatkin hieman erikoisella tavalla! Tämä sai täten arvosanaksi tiimiltämme: Vilin Veikeä leiman. 2/5"
+//             },
+//             {
+//             leffanNmr:21,
+//             leffanPvm:new Date("2024-11-25"),
+//             paivanleffa: "Dear Santa",
+//             kuva: "/Leffat/21.Dear Santa/21.Dear Santa.png"/>,
+//             kuvaus: "Dear Santa elokuva on komedia tarina, jossa nuori poika lähettää vahingossa joululahjatoiveensa Saatanalle (Santa=Satan) joulupukin sijaan. Tästä syntyy kaaos, kun joulupukin roolia näyttelevä pahantahtoinen hahmo tuo sekaannusta joulunviettoon. Elokuvassa yhdistyvät huumori ja joulu, ja sen tapahtumat vievät katsojat yllättävään ja hauskaan joulutunnelmaan. Elokuvan ensi-ilta on 25. marraskuuta 2024Tämä uutuuden karhea karkelo sai tiimiltämme arvosanaksi: VERJ leiman, joka tarkoittaa että tämä on kaikkien pakko katsoa mahdollisimman pian! 24/kaksitusinaa piparipakettia."
+//             },
+//             {
+//             leffanNmr:22,
+//             leffanPvm: new Date("2024-11-25"),
+//             paivanleffa: "Joulupukki ja noitarumpu",
+//             kuva: "/Leffat/22.Joulupukki ja noitarumpu/22.Joulupukki ja noitarumpu.png"/>,
+//             kuvaus: "Joulupukki ja noitarumpu (Santa Claus and the Magic Drum) on suomalainen animaatio, joka esitettiin ensimmäisen kerran jouluaattona 1996. Elokuvan pohjana on Mauri Kunnaksen vuonna 1995 julkaistu lastenkirja. Tarinassa Joulupukki tutkii outoja tapahtumia, jotka johtuvat salaperäisestä šamaanista ja hänen maagisesta rumpustaan, joka tuo kaaosta Joulupukin kylään. Alkuperäinen, lapsena Joulupukilta unelma-avustajaksi halunnut hahmo muuttuu katkeraksi ja kostavaksi, mutta elokuvassa kaikki päättyy hyvin. Vaikka elokuva on saanut vankan kulttimaineen omaleimaisella tarinankerronnallaan ja animaatiollaan, sen kulttuurisia elementtejä, kuten saamelaista kulttuuria käsitteleviä kohtauksia, on kritisoitu. Erityisesti nykypäivän herkässä kulttuurisen omimisen ja soveltuvuuden tarkastelussa. Tästä syystä elokuvan katsomista kannattaa lähestyä varauksella, vaikka se edelleen kuuluu monelle suomalaiselle joulun perinteisiin. Täten tämä sai tiimiltämme arvosanaksi: Vilin Varovainen leima. 3/5"
+//             },
+//             {
+//             leffanNmr: 23 ,
+//             leffanPvm: new Date("2024-11-25"),
+//             paivanleffa: "Samu Sirkan Joulutervehdys",
+//             kuva: "/Leffat/23.Samu Sirkan Joulutervehdys/23.Samu Sirkan Joulutervehdys.png"/>,
+//             kuvaus: "Samu Sirkan joulutervehdys on Disneyn klassikko, alkuperäiseltä nimeltään From All of Us to All of You, joka esitettiin osana Disneyn piirrossarjaa Disneyn ihmeellinen maailma. , Todellisuudessa tämä elokuva on kooste useista animaatioista ja sitä muokataan vuosittain. Siitä huolimatta ettei tämä ole varsinaisesti ”elokuva”, ei estä sitä lisäämästä Elokuva Joulukalenterimme kärkikastiin ja ”Pakko katsoa”- listalle.Täten tämä saa tiimiltämme arvosanaksi: VERJ- leiman eli pakko katsoa leiman. 6/5"  
+//             },
+//             {
+//             leffanNmr: 24 ,
+//             leffanPvm: new Date("2024-11-25"),
+//             paivanleffa: "Lumiukko",
+//             kuva: "/Leffat/24. Lumiukko/24. Lumiukko.png"/>,
+//             kuvaus: "Lumiukko (The Snowman) on lumoava lyhyt jouluelokuva, jossa poika rakentaa lumiukon, joka herää eloon. Yhdessä he lähtevät uskomattomalle seikkailulle Pohjoisnavalle. Elokuvan tunnelma on lämmin ja ihmeellinen, ja Howard Blaken säveltämä musiikki luo unohtumatonta joulutunnelmaa. Se on tarina ystävyydestä, ihmeistä ja joulun taianomaisesta hetkellisyydestä, joka tuo lämpöä ja iloa joulun juhlahetkiin. Tämä ultimaattinen klassikko on kaikkien pakko nähdä! Täten tämä lyhyt, mutta tunteikas ja sydämiä sulattava luomus saa tiimiltämme VERJ- leiman! 10/5 sulanutta lumiukkoa."
+//             }
+            
+//             ];
+
+//        function avaaLuukku(luukku) {
+//             console.log(luukku);
+//             document.getElementById("vastaus").innerHTML = `Luukku ${luukku.luukunNmr}: ${luukku.sivu}`;
+//         }
+//         function tyonnaKuva() {
+//             let img = createElement('img');
+//             img.src = "https://i.ibb.co/Z6xnxBv/1-Yksinkotona.png";
+//             document.getElementById('Testi').appendChild(image);
+//         }        
+           </script>
+    <h3>Muistithan katsoa myös edellisten päivien luukut?</h3>
+</body>
+</html>
