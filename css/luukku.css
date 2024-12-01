@@ -67,6 +67,7 @@ ul {
     width: 15%;
     background-size: cover;
     background-position: center;
+    background-repeat: repeat-y;
   }
   
   .sidebar.left {
@@ -86,8 +87,8 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
-    background-repeat: no-repeat;
-    position: absolute;
+    background-repeat: repeat-y;
+    position: relative;
 }
 
 h1{
@@ -120,8 +121,11 @@ p {
     margin-top: 5%;
 }
 
-.juliste {
+.leffajuliste {
+    width: 50%;
+    height: auto;
     margin-left: -15%;
+    margin-top: 1px;
 }
 
 
