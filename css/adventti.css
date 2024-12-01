@@ -14,6 +14,7 @@ ul {
   top: 0;
   left: 0;
   z-index: 1000;
+  box-shadow: 0 0 10px #000;
 }
 
 li {
@@ -99,6 +100,7 @@ h1 {
   font-size: 900%;
   font-weight: bold;
   text-shadow: 1px 10px 20px rgba(0, 0, 0, 0.7);
+  margin-top: 7%;
 }
 
 h2 {
